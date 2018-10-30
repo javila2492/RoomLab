@@ -16,7 +16,8 @@ public class WinningRoom extends Room
 	 * @param x the Person entering
 	 */
 	@Override
-	public void enterRoom(Person x) {
+	public void enterRoom(Person x)
+	{
 
 		occupant = x;
 		x.setxLoc(this.xLoc);

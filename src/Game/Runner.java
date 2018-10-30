@@ -1,13 +1,14 @@
 package Game;
 
 import People.Person;
+import Rooms.DeathRoom;
 import Rooms.Room;
 import Rooms.WinningRoom;
 
 import java.util.Scanner;
 
 public class Runner {
-	
+
 
 	private static boolean gameOn = true;
 	
@@ -28,6 +29,17 @@ public class Runner {
 		int x = (int)(Math.random()*building.length);
 		int y = (int)(Math.random()*building.length);
 		building[x][y] = new WinningRoom(x, y);
+
+		//Create a random death room.
+		int z = (int)(Math.random()*building.length);
+		int a = (int)(Math.random()*building.length);
+		while(z == x && a == y || z == 0 && y == 0)
+		{
+			z = (int)(Math.random()*building.length);
+			a = (int)(Math.random()*building.length);
+		}
+		building[z][a] = new DeathRoom(z, a);
+
 		 
 		 //Setup player 1 and the input scanner
 		Person player1 = new Person("FirstName", "FamilyName", 0,0);
